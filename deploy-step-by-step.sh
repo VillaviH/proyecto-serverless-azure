@@ -307,7 +307,7 @@ fi
 # Verificar estado de GitHub Actions
 echo ""
 echo "🔍 Verificando estado de GitHub Actions..."
-echo "   Revisa: https://github.com/tu-usuario/tu-repo/actions"
+echo "   Revisa: https://github.com/VillaviH/proyecto-serverless-azure/actions"
 echo "   El despliegue automático puede tardar 2-5 minutos"
 
 cd ..
@@ -331,9 +331,10 @@ echo "   ✅ Base de datos configurada"
 echo "   ✅ GitHub Actions configurado para futuros despliegues automáticos"
 echo ""
 echo "⏰ PRÓXIMOS PASOS:"
-echo "   1. Revisa GitHub Actions: https://github.com/tu-usuario/tu-repo/actions"
-echo "   2. El frontend estará disponible en 2-5 minutos"
-echo "   3. Verifica que ambas URLs respondan correctamente"
+echo "   1. Revisa GitHub Actions: https://github.com/VillaviH/proyecto-serverless-azure/actions"
+echo "   2. Si GitHub Actions falla, ejecuta: ./frontend/deploy-frontend.sh"
+echo "   3. Si persiste 404, recrea Static Web App desde Azure Portal"
+echo "   4. Verifica que ambas URLs respondan correctamente"
 echo ""
 echo "🔧 Comandos útiles:"
 echo "   Ver logs backend: func azure functionapp logstream $FUNCTION_APP_NAME"

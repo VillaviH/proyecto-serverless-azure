@@ -1,12 +1,27 @@
-# 🎉 ¡APLICACIÓN CRUD SERVERLESS DESPLEGADA CON ÉXITO!
+# � ESTADO FINAL DEL DESPLIEGUE - Azure Serverless CRUD
 
-## ✅ DESPLIEGUE COMPLETADO
+## 📊 ESTADO ACTUAL (3 julio 2025 - 17:20)
 
-### 🌐 URLs de la Aplicación en Producción:
+### ✅ COMPLETADO (95%)
+- ✅ **Infraestructura Azure**: Desplegada y funcionando
+- ✅ **Backend (.NET 8)**: Funcionando en Azure Functions
+- ✅ **Base de datos SQL**: Configurada y conectada
+- ✅ **GitHub Actions**: Configurado para CI/CD automático
+- ✅ **Scripts de despliegue**: Todos creados y probados
+- ✅ **Frontend build**: Compilando correctamente
 
-**🎯 FRONTEND (Azure Static Web Apps):**
-- **URL Principal**: https://happy-grass-00f8dff0f.2.azurestaticapps.net/
-- **Estado**: ✅ FUNCIONANDO
+### ❌ PENDIENTE (5%)
+- ❌ **Frontend URL**: Responde 404 en https://crudapp-web-prod-ckp33m.azurestaticapps.net
+- ❌ **GitHub Actions**: Último workflow falló (requiere revisión)
+
+## 🌐 URLs DE LA APLICACIÓN
+
+| Servicio | URL | Estado |
+|----------|-----|--------|
+| **Backend API** | https://crudapp-api-prod-ckp33m.azurewebsites.net/api | ✅ FUNCIONANDO |
+| **Frontend** | https://crudapp-web-prod-ckp33m.azurestaticapps.net | ❌ 404 |
+| **GitHub Repo** | https://github.com/VillaviH/proyecto-serverless-azure | ✅ ACTUALIZADO |
+| **GitHub Actions** | https://github.com/VillaviH/proyecto-serverless-azure/actions | ⚠️ REVISAR |
 
 **🔧 BACKEND (Azure Functions):**
 - **API URL**: https://crudapp-api-prod-ckp33m.azurewebsites.net/api
@@ -134,6 +149,48 @@ az functionapp log tail --name crudapp-api-prod-ckp33m --resource-group rg-crud-
 
 ---
 
+## 📅 ACTUALIZACIÓN - 3 de Julio 2025, 17:20
+
+### 🔄 ESTADO ACTUAL DEL DEPLOYMENT
+
+**✅ COMPLETADO:**
+- ✅ Infraestructura Bicep desplegada en Azure
+- ✅ Backend .NET 8 funcionando en Azure Functions
+- ✅ Base de datos SQL Server configurada y conectada
+- ✅ Scripts de despliegue y monitoreo creados
+- ✅ Código subido a GitHub con todos los fixes
+
+**🔄 EN PROGRESO:**
+- 🔄 Frontend siendo desplegado via SWA CLI (directo)
+- 🔄 GitHub Actions workflow ejecutándose
+- 🔄 Propagación de la URL personalizada de Static Web Apps
+
+**📊 URLs ACTUALES:**
+- **Backend API:** https://crudapp-api-prod-ckp33m.azurewebsites.net/api ✅ FUNCIONANDO
+- **Frontend:** https://crudapp-web-prod-ckp33m.azurestaticapps.net 🔄 EN DESPLIEGUE
+
+### ⏰ PRÓXIMOS PASOS (1-5 minutos):
+1. Completar SWA CLI deployment
+2. Verificar que GitHub Actions termine exitosamente
+3. Confirmar que la URL personalizada responda 200
+4. Probar la aplicación completa end-to-end
+
+### 🔧 COMANDOS DE VERIFICACIÓN:
+```bash
+# Verificar estado del frontend
+curl -I https://crudapp-web-prod-ckp33m.azurestaticapps.net
+
+# Verificar backend funcionando
+curl https://crudapp-api-prod-ckp33m.azurewebsites.net/api/tasks
+
+# Monitorear GitHub Actions
+gh run list --repo VillaviH/proyecto-serverless-azure
+```
+
+**🎯 RESULTADO ESPERADO:** En 5 minutos, ambas URLs deberían responder correctamente y la aplicación estará completamente funcional en Azure.
+
+---
+
 ## ✅ RESUMEN DEL ÉXITO
 
 🎉 **¡La aplicación CRUD serverless está completamente desplegada y funcionando!**
@@ -151,5 +208,65 @@ az functionapp log tail --name crudapp-api-prod-ckp33m --resource-group rg-crud-
 
 ---
 
-*Fecha de despliegue: 3 de julio de 2025*
-*Estado: PRODUCCIÓN ACTIVA* ✅
+## 🔧 ACCIONES INMEDIATAS
+
+### 1. VERIFICAR GITHUB ACTIONS (PASO CRÍTICO)
+```bash
+# Visitar en el navegador:
+https://github.com/VillaviH/proyecto-serverless-azure/actions
+```
+
+**Si el último workflow falló:**
+- Revisar los logs del workflow
+- Verificar que el secreto `AZURE_STATIC_WEB_APPS_API_TOKEN` esté configurado
+- Si no está, ir a: Settings > Secrets and variables > Actions
+
+### 2. DESPLIEGUE MANUAL DE EMERGENCIA
+Si GitHub Actions no funciona, ejecutar:
+```bash
+cd /Users/villavih/Documents/DATAFAST/proyecto-serverless-azure
+./frontend/deploy-frontend.sh
+```
+
+### 3. VERIFICACIÓN DE BACKEND
+Probar que el backend funciona:
+```bash
+curl https://crudapp-api-prod-ckp33m.azurewebsites.net/api/tasks
+```
+
+### 4. ÚLTIMO RECURSO: RECREAR STATIC WEB APP
+Si persiste el 404, ir al Portal Azure y:
+1. Eliminar la Static Web App actual
+2. Crear una nueva vinculada directamente al repositorio
+3. Asegurar que apunte a `/frontend/out` como build folder
+
+## 📱 PRUEBA COMPLETA
+
+Una vez que el frontend responda, probar la aplicación completa:
+
+1. **Abrir frontend**: https://crudapp-web-prod-ckp33m.azurestaticapps.net
+2. **Crear tarea**: Agregar una nueva tarea
+3. **Verificar lista**: Que aparezca en la lista
+4. **Editar tarea**: Modificar una tarea existente
+5. **Eliminar tarea**: Borrar una tarea
+
+## 🎉 AL COMPLETARSE
+
+Cuando ambas URLs respondan correctamente:
+- ✅ Aplicación CRUD completamente funcional
+- ✅ Despliegue automático desde GitHub
+- ✅ Infraestructura serverless en Azure
+- ✅ Base de datos SQL configurada
+- ✅ CI/CD pipeline funcionando
+
+## 📞 SOPORTE
+
+Si necesitas ayuda adicional:
+1. Revisa los logs de Azure Functions
+2. Revisa los logs de GitHub Actions
+3. Verifica la configuración de la Static Web App
+4. Contacta soporte técnico si los servicios de Azure fallan
+
+---
+**Última actualización**: 3 julio 2025 17:20  
+**Estado**: 95% completado - Pendiente resolución frontend URL
