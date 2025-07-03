@@ -14,6 +14,16 @@ param sqlAdminUsername string = 'sqladmin'
 @secure()
 param sqlAdminPassword string
 
+@description('URL del repositorio de GitHub')
+param repositoryUrl string = 'https://github.com/VillaviH/proyecto-serverless-azure'
+
+@description('Rama del repositorio de GitHub')
+param repositoryBranch string = 'main'
+
+@description('Token de GitHub para deployment (opcional)')
+@secure()
+param repositoryToken string = ''
+
 // Variables
 var uniqueSuffix = substring(uniqueString(resourceGroup().id), 0, 6)
 var functionAppName = '${baseName}-api-${environment}-${uniqueSuffix}'
@@ -175,11 +185,15 @@ resource staticWebApp 'Microsoft.Web/staticSites@2023-01-01' = {
     tier: 'Free'
   }
   properties: {
+    repositoryUrl: repositoryUrl
+    branch: repositoryBranch
+    repositoryToken: !empty(repositoryToken) ? repositoryToken : null
     buildProperties: {
       appLocation: '/frontend'
       apiLocation: ''
       outputLocation: 'out'
     }
+    provider: 'GitHub'
   }
 }
 

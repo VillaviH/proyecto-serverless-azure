@@ -13,6 +13,12 @@
     },
     "sqlAdminPassword": {
       "value": "MySecureP@ssw0rd2025!"
+    },
+    "repositoryUrl": {
+      "value": "https://github.com/VillaviH/proyecto-serverless-azure"
+    },
+    "repositoryBranch": {
+      "value": "main"
     }
   }
 }
