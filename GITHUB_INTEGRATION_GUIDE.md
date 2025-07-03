@@ -110,10 +110,10 @@ az staticwebapp update \
   --name crudapp-web-prod-ckp33m \
   --resource-group rg-crud-serverless-villavih \
   --source https://github.com/TU_USUARIO/proyecto-serverless-azure \
-  --branch main \
-  --app-location '/frontend' \
-  --output-location 'out'
+  --branch main
 ```
+
+**📝 Nota**: Las configuraciones `app-location` y `output-location` se manejan automáticamente a través del archivo de GitHub Actions que ya está configurado.
 
 ---
 

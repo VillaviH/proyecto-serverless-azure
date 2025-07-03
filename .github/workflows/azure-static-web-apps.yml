@@ -1,3 +1,6 @@
+# Archivo de configuración para Azure Static Web Apps
+# Este archivo se creará automáticamente cuando conectes tu repositorio
+
 name: Azure Static Web Apps CI/CD
 
 on:
@@ -18,7 +21,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-          lfs: false
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -29,9 +31,6 @@ jobs:
           app_location: "/frontend"
           api_location: ""
           output_location: "out"
-        env:
-          NEXT_PUBLIC_API_URL: "https://crudapp-api-prod-ckp33m.azurewebsites.net/api"
-          NODE_ENV: "production"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

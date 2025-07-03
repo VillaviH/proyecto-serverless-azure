@@ -83,6 +83,16 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: './frontend/package-lock.json'
+      - name: Install Dependencies
+        run: |
+          cd frontend
+          npm ci --include=dev
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -93,6 +103,7 @@ jobs:
           app_location: "/frontend"
           api_location: ""
           output_location: "out"
+          skip_app_build: false
         env:
           NEXT_PUBLIC_API_URL: "https://crudapp-api-prod-ckp33m.azurewebsites.net/api"
           NODE_ENV: "production"
@@ -141,9 +152,10 @@ echo "az staticwebapp update \\"
 echo "  --name $STATIC_WEB_APP_NAME \\"
 echo "  --resource-group $RESOURCE_GROUP \\"
 echo "  --source https://github.com/$GITHUB_USERNAME/$REPO_NAME \\"
-echo "  --branch main \\"
-echo "  --app-location '/frontend' \\"
-echo "  --output-location 'out'"
+echo "  --branch main"
+echo ""
+echo "NOTA: La configuración de app-location y output-location se maneja"
+echo "      automáticamente a través del archivo de GitHub Actions."
 echo ""
 
 echo "✅ PASO 7: Verificar funcionamiento"
