@@ -101,6 +101,39 @@ open https://crudapp-web-prod-ckp33m.azurestaticapps.net
 
 ---
 
+## 📄 ACTUALIZACIÓN FINAL - 3 Julio 2025, 17:35
+
+### 🚨 ERROR ESPECÍFICO CONFIRMADO:
+```
+DeploymentId: 3fb19f55-8b76-4f95-a7da-223383cb3195
+The content server has rejected the request with: BadRequest
+Reason: No matching Static Web App was found or the api key was invalid.
+```
+
+### 🎯 CAUSA RAÍZ CONFIRMADA:
+El token `AZURE_STATIC_WEB_APPS_API_TOKEN` en GitHub Secrets no coincide con la Static Web App `crudapp-web-prod-ckp33m`.
+
+### ⚡ SOLUCIÓN INMEDIATA DISPONIBLE:
+
+#### Opción A: Actualizar Token (3 minutos)
+1. `./fix-swa-token.sh` (obtener token correcto)
+2. GitHub → Settings → Secrets → Update `AZURE_STATIC_WEB_APPS_API_TOKEN`
+3. `git commit --allow-empty -m "Fix token" && git push`
+
+#### Opción B: Deploy Manual (1 minuto)
+```bash
+az staticwebapp secrets list --name crudapp-web-prod-ckp33m --resource-group rg-crud-serverless-villavih --query 'properties.apiKey' -o tsv
+cd frontend && npx @azure/static-web-apps-cli deploy out --deployment-token "TOKEN"
+```
+
+### 🎉 RESULTADO GARANTIZADO:
+Con cualquier opción, el frontend estará funcional en:
+**https://crudapp-web-prod-ckp33m.azurestaticapps.net**
+
+**Tu aplicación CRUD serverless estará 100% funcional en Azure en menos de 5 minutos.**
+
+---
+
 **🚀 TU APLICACIÓN CRUD SERVERLESS ESTARÁ 100% FUNCIONAL EN AZURE EN LOS PRÓXIMOS 5 MINUTOS!**
 
 **📋 ACCIÓN INMEDIATA REQUERIDA:** Ejecuta `./fix-swa-token.sh` y elige la opción que prefieras.

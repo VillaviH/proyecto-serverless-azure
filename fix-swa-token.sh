@@ -12,6 +12,8 @@ REPO_URL="https://github.com/VillaviH/proyecto-serverless-azure"
 echo "🔍 PROBLEMA IDENTIFICADO:"
 echo "   ❌ GitHub Actions Error: 'No matching Static Web App was found or the api key was invalid'"
 echo "   ❌ El token AZURE_STATIC_WEB_APPS_API_TOKEN no coincide con la Static Web App actual"
+echo "   ❌ Error específico en deployment: DeploymentId: 3fb19f55-8b76-4f95-a7da-223383cb3195"
+echo "   ❌ BadRequest: No matching Static Web App was found or the api key was invalid"
 echo ""
 
 echo "🚀 SOLUCIONES DISPONIBLES:"
