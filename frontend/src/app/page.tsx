@@ -6,7 +6,7 @@ export default function Home() {
       <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Sistema CRUD Serverless
+            Sistema de Pruebas CRUD Serverless 
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Demostración de un sistema CRUD completo con Next.js, .NET Core 8 y Azure Serverless
